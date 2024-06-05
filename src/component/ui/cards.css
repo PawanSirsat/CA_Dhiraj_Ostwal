@@ -1,0 +1,165 @@
+/* Add these styles to your existing style.css */
+
+.slide-container {
+ width: 100%;
+ overflow: hidden;
+ position: relative;
+}
+
+.slide-content {
+ display: flex;
+ transition: transform 0.3s ease;
+}
+
+.card-wrapper {
+ display: flex;
+}
+
+.card {
+ flex: 0 0 33.33%;
+ box-sizing: border-box;
+ padding: 15px;
+}
+
+.card-content-wrapper h2 {
+ color: #fff;
+}
+
+.card-content-wrapper {
+ background-color: #fff;
+ border-radius: 10px;
+ overflow: hidden;
+ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+ position: relative;
+ transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-content-wrapper::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+ opacity: 0;
+ transition: opacity 0.3s ease;
+}
+
+.card-content-wrapper:hover::before {
+ opacity: 1;
+ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.card-content-wrapper:hover {
+ box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content-wrapper .card-content {
+ position: relative;
+ transform: translateY(100%);
+ opacity: 0;
+ transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-content-wrapper:hover .card-content {
+ transform: translateY(0);
+ opacity: 1;
+}
+
+.image-content {
+ position: relative;
+ width: 100%;
+ padding-top: 75%;
+ /* Maintain aspect ratio */
+}
+
+.overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ opacity: 0;
+ transition: opacity 0.3s ease;
+}
+
+.card-content-wrapper:hover .overlay {
+ opacity: 1;
+}
+
+.card-image {
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-size: cover;
+ background-position: center;
+}
+
+.card-content {
+ padding: 20px;
+ text-align: center;
+}
+
+.name {
+ font-size: 1.5rem;
+ font-weight: bold;
+}
+
+.description {
+ font-size: 1rem;
+ margin: 10px 0;
+}
+
+.button {
+ padding: 10px 20px;
+ background-color: #007bff;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.button:hover {
+ background-color: #0056b3;
+}
+
+/* Navigation buttons */
+.navBtn {
+ position: absolute;
+ top: 50%;
+ width: 50px;
+ height: 50px;
+ background-color: rgba(0, 0, 0, 0.5);
+ color: #fff;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transform: translateY(-50%);
+}
+
+.navBtn.left {
+ left: 10px;
+}
+
+.navBtn.right {
+ right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 950px) {
+ .card {
+  flex: 0 0 50%;
+ }
+}
+
+@media (max-width: 520px) {
+ .card {
+  flex: 0 0 100%;
+ }
+}
